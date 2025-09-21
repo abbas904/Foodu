@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ShoppingCart, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "../../assets/logo.png";
-import logoBlack from "../../assets/logoBlack.png";
+import logoBlack from "../../assets/logoblack.png";
 import { CartContext } from "../context/CartContext";
 import { fadeIn, staggerContainer } from "../../utils/motion"; // استورد الـ animations
 
