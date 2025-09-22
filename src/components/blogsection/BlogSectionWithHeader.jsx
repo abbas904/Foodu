@@ -46,12 +46,26 @@ export default function BlogSection() {
         {/* Header Section */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <img src={logoLeft} alt="Logo Left" className="w-30" />
-            <h4 className="text-red-800 text-2xl  font-semibold">
-              News & Blog
-            </h4>
-            <img src={logoRight} alt="Logo Right" className="w-30" />
-          </div>
+  {/* Logo يسار */}
+  <img
+    src={logoLeft}
+    alt="Logo Left"
+    className="w-12 sm:w-16 md:w-20 lg:w-24"
+  />
+
+  {/* العنوان */}
+  <h4 className="text-red-800 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-center">
+    News & Blog
+  </h4>
+
+  {/* Logo يمين */}
+  <img
+    src={logoRight}
+    alt="Logo Right"
+    className="w-12 sm:w-16 md:w-20 lg:w-24"
+  />
+</div>
+
           <div>
             <h2 className="text-3xl md:text-4xl font-bold">
               Our Latest News & Blog

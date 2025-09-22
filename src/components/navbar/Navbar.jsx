@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import logo from "../../assets/logo.png";
 import logoBlack from "../../assets/logoblack.png";
 import { CartContext } from "../context/CartContext";
-import { fadeIn, staggerContainer } from "../../utils/motion"; // استورد الـ animations
+import { fadeIn } from "../../utils/motion";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -28,7 +28,6 @@ export default function Navbar() {
 
   // Active link styling
   const isActive = (path) => location.pathname === path;
-
   const linkClasses = (path) =>
     `border border-transparent rounded-md px-4 py-1 transition-all duration-500 font-sans ${
       scrolledPastHero
@@ -101,7 +100,10 @@ export default function Navbar() {
           onMouseEnter={() => setCartOpen(true)}
           onMouseLeave={() => setCartOpen(false)}
         >
-          <ShoppingCart size={24} className={scrolledPastHero ? "text-black" : "text-white"} />
+          <ShoppingCart
+            size={24}
+            className={scrolledPastHero ? "text-black" : "text-white"}
+          />
           {numsItems > 0 && (
             <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
               {numsItems}
@@ -117,17 +119,27 @@ export default function Navbar() {
               >
                 <h3 className="font-semibold text-lg mb-2">Your Order</h3>
                 <div className="max-h-80 sm:max-h-96 overflow-y-auto">
-                  {cart.length === 0 && <p className="text-gray-500">Cart is empty</p>}
+                  {cart.length === 0 && (
+                    <p className="text-gray-500">Cart is empty</p>
+                  )}
                   {cart.map((item) => (
                     <div
                       key={item.id}
                       className="flex justify-between items-center mb-2 p-2 rounded hover:bg-gray-50 transition"
                     >
                       <div className="flex items-center gap-2">
-                        <img src={item.image} alt={item.title} className="w-10 h-10 object-cover rounded" />
-                        <span className="text-sm">{item.title} x {item.quantity}</span>
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-10 h-10 object-cover rounded"
+                        />
+                        <span className="text-sm">
+                          {item.title} x {item.quantity}
+                        </span>
                       </div>
-                      <span className="font-semibold">${(item.price * item.quantity).toFixed(2)}</span>
+                      <span className="font-semibold">
+                        ${(item.price * item.quantity).toFixed(2)}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -157,7 +169,9 @@ export default function Navbar() {
 
       {/* Hamburger */}
       <button
-        className="md:hidden flex items-center text-white z-50"
+        className={`md:hidden flex items-center z-50 transition-colors duration-500 ${
+          scrolledPastHero ? "text-black" : "text-white"
+        }`}
         onClick={() => setMobileMenuOpen((prev) => !prev)}
       >
         {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -174,11 +188,13 @@ export default function Navbar() {
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
             <ul className="flex flex-col gap-2 p-4 text-black font-semibold">
-              {["/", "/about", "/chefs", "/menu", "/blog", "/contact"].map((path, i) => (
-                <li key={i} className="px-4 py-2 border-b border-gray-200">
-                  <Link to={path}>{path.replace("/", "") || "Home"}</Link>
-                </li>
-              ))}
+              {["/", "/about", "/chefs", "/menu", "/blog", "/contact"].map(
+                (path, i) => (
+                  <li key={i} className="px-4 py-2 border-b border-gray-200">
+                    <Link to={path}>{path.replace("/", "") || "Home"}</Link>
+                  </li>
+                )
+              )}
               <li className="px-4 py-2 flex items-center border-b border-gray-200 relative">
                 <Link to="/cart" className="flex items-center gap-2">
                   <ShoppingCart size={20} />

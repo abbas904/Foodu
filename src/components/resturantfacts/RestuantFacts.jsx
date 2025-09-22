@@ -88,7 +88,7 @@ export default function FunFacts() {
   return (
     <>
       {/* ====== Fun Facts Section ====== */}
-      <section className="relative py-20 font-sans overflow-hidden"
+      <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 font-sans overflow-hidden px-3 sm:px-4 md:px-6 lg:px-8"
         style={{ backgroundColor: "#ebe9e6" }}>
         {/* الخلفية المتحركة */}
         <motion.div
@@ -103,13 +103,13 @@ export default function FunFacts() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="relative container mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12"
+          className="relative container mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-6 sm:gap-8 md:gap-12"
         >
           {/* النصوص والإحصائيات */}
           <div>
             <motion.h1
               variants={fadeIn("down", "tween", 0.2, 1)}
-              className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-6 text-center lg:text-left leading-tight"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black text-gray-900 mb-4 sm:mb-6 text-center lg:text-left leading-tight"
             >
               Experience of <span className="text-red-600">real recipes</span>{" "}
               taste
@@ -117,7 +117,7 @@ export default function FunFacts() {
 
             {/* خط تحت العنوان */}
             <motion.div
-              className="h-1 bg-red-600 mb-10 origin-left w-full"
+              className="h-1 bg-red-600 mb-6 sm:mb-8 md:mb-10 origin-left w-full"
               variants={{
                 hidden: { scaleX: 0, opacity: 0 },
                 show: {
@@ -129,14 +129,14 @@ export default function FunFacts() {
             />
 
             {/* الكاونترات */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
               {stats.map((item, index) => (
                 <motion.div
                   key={index}
                   variants={fadeIn("up", "tween", 0.4 + index * 0.3, 1)}
                   className="text-center"
                 >
-                  <div className="text-4xl md:text-5xl font-bold text-red-600">
+                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-red-600">
                     <Counter
                       from={0}
                       to={item.number}
@@ -144,8 +144,10 @@ export default function FunFacts() {
                       format={item.format}
                     />
                   </div>
-                  <span className="text-gray-600 text-lg">{item.label}</span>
-                  {item.icon}
+                  <span className="text-gray-600 text-xs sm:text-sm md:text-base lg:text-lg">{item.label}</span>
+                  <div className="mt-1">
+                    {item.icon}
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -159,20 +161,20 @@ export default function FunFacts() {
             <img
               src={foodimg}
               alt="Fun facts illustration"
-              className="relative w-full max-w-md mx-auto z-10"
+              className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto z-10"
             />
           </motion.div>
         </motion.div>
       </section>
 
       {/* ====== Features Section (Timeline + Cards) ====== */}
-      <section className="relative py-32 bg-white overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 bg-white overflow-hidden px-3 sm:px-4 md:px-6 lg:px-8">
         {/* الخط الأفقي تحت السكشن */}
        
 
         {/* الكروت */}
        {/* الكروت */}
-<div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mt-10 px-4">
+<div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto mt-6 sm:mt-8 md:mt-10">
   {features.map((item, i) => (
     <motion.div
       key={i}
@@ -181,27 +183,27 @@ export default function FunFacts() {
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
       className={`relative flex flex-col items-center text-center ${
-        i % 2 === 0 ? "mt-16" : "-mt-16"
+        i % 2 === 0 ? "mt-4 sm:mt-6 md:mt-8 lg:mt-12 xl:mt-16" : "-mt-4 sm:-mt-6 md:-mt-8 lg:-mt-12 xl:-mt-16"
       }`} 
     >
       {/* الخط العمودي */}
-      <span className="absolute -top-[300px] h-[350px] w-1 bg-gray-300"></span>
+      <span className="hidden lg:block absolute -top-[150px] md:-top-[200px] lg:-top-[250px] xl:-top-[300px] h-[180px] md:h-[250px] lg:h-[300px] xl:h-[350px] w-1 bg-gray-300"></span>
 
       {/* الدائرة */}
-      <span className="w-6 h-6 rounded-full bg-black border-4 border-red-100 relative top-10 z-10"></span>
+      <span className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 rounded-full bg-black border-2 md:border-3 lg:border-4 border-red-100 relative top-4 sm:top-6 md:top-8 lg:top-10 z-10"></span>
 
       {/* الكارت */}
       <div
-        className="mt-8 shadow-md rounded-xl px-6 py-8 sm:px-8 sm:py-10 max-w-xs w-full hover:shadow-xl transition duration-300"
+        className="mt-4 sm:mt-6 md:mt-8 shadow-md rounded-xl px-3 py-4 sm:px-4 sm:py-6 md:px-6 md:py-8 lg:px-8 lg:py-10 max-w-xs w-full hover:shadow-xl transition duration-300"
         style={{ backgroundColor: "#ebe9e6" }}
       >
         <img
           src={item.img}
           alt={item.title}
-          className="mx-auto mb-4 w-32 h-16 sm:w-36 sm:h-20 object-contain"
+          className="mx-auto mb-2 sm:mb-3 md:mb-4 w-20 h-10 sm:w-24 sm:h-12 md:w-28 md:h-14 lg:w-32 lg:h-16 xl:w-36 xl:h-20 object-contain"
         />
-        <h4 className="font-bold text-xl sm:text-2xl mb-2 text-gray-800">{item.title}</h4>
-        <p className="text-gray-700 text-sm sm:text-md font-sans text-center">{item.text}</p>
+        <h4 className="font-bold text-base sm:text-lg md:text-xl lg:text-2xl mb-2 text-gray-800">{item.title}</h4>
+        <p className="text-gray-700 text-xs sm:text-sm md:text-base font-sans text-center">{item.text}</p>
       </div>
     </motion.div>
   ))}

@@ -23,13 +23,19 @@ export default function ChefSection() {
     <section className="py-16" style={{ backgroundColor: "#ebe9e6" }}>
       <div className="max-w-7xl mx-auto px-4">
         {/* العنوان */}
-        <div className="flex flex-col items-center mb-12">
-  <div className="flex items-center justify-center">
+ <div className="flex flex-col items-center mb-12">
+  {/* العنوان مع الصور */}
+  <div className="flex flex-row flex-wrap items-center justify-center">
     {/* Logo يسار */}
-    <img src={arrow1} alt="Logo Left" className="lg:w-30 sm:w-10  mr-4" />
+    <img
+      src={arrow1}
+      alt="Logo Left"
+      className="w-10 sm:w-12 md:w-16 lg:w-24 mr-4 mb-2 sm:mb-0"
+    />
 
+    {/* العنوان h3 */}
     <motion.h3
-      className="text-red-800 font-semibold mb-2 text-xl sm:text-lg md:text-2xl lg:text-3xl"
+      className="text-red-800 font-semibold text-lg sm:text-xl md:text-2xl lg:text-3xl mb-2"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -38,12 +44,16 @@ export default function ChefSection() {
     </motion.h3>
 
     {/* Logo يمين */}
-    <img src={arrow2} alt="Logo Right" className="lg:w-30 sm:w-10 ml-4" />
+    <img
+      src={arrow2}
+      alt="Logo Right"
+      className="w-10 sm:w-12 md:w-16 lg:w-24 ml-4 mb-2 sm:mb-0"
+    />
   </div>
 
-  {/* العنوان الثاني منفصل */}
+  {/* العنوان الثاني منفصل h2 */}
   <motion.h2
-    className="lg:text-5xl md:text-4xl font-extrabold text-gray-800 leading-tight mt-2"
+    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-800 leading-tight mt-2 text-center"
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8, delay: 0.2 }}
@@ -51,8 +61,6 @@ export default function ChefSection() {
     Meet Our Kitchen Kings
   </motion.h2>
 </div>
-
-
 
         {/* الشبكة */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
